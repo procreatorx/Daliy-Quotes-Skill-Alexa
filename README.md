@@ -1,2 +1,3 @@
 # Daliy-Quotes-Skill-Alexa
-A daily quotes skill using alexa
+A daily quotes skill using alexa.
+It gives you basic knowledge about alexa sdk 2 and how to use api's in alexa. How to send Asyncronous Request to servers to fetch infomation
