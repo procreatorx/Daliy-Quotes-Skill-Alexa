@@ -1,0 +1,55 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "daily quotes",
+      "types": [
+
+      ],
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": [
+
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+                "help"
+          ]
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": [
+            "stop"
+
+          ]
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": [
+
+          ]
+        },
+        {
+          "name": "qod",
+          "slots": [],
+          "samples": [
+            "quote of the day",
+            "quote of day",
+            "today's quote"
+          ]
+        },
+        {
+          "name": "rq",
+          "slots": [],
+          "samples": [
+            "a random quote",
+            "random quote",
+            "new quote"
+          ]
+        }
+      ]
+    }
+  }
+}
