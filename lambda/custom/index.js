@@ -31,6 +31,16 @@ const LaunchRequestHandler = {
   },
 };
 
+
+
+function parseHtmlEnteties(str) {
+  return str.replace(/&#([0-9]{1,4});/gi, function(match, numStr) {
+      var num = parseInt(numStr, 10); // read num as normal number
+      return String.fromCharCode(num);
+  });
+}
+
+//Random Quote
 const RandomQuoteIntentHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
@@ -56,14 +66,9 @@ console.log(error);
   },
 };
 
-function parseHtmlEnteties(str) {
-  return str.replace(/&#([0-9]{1,4});/gi, function(match, numStr) {
-      var num = parseInt(numStr, 10); // read num as normal number
-      return String.fromCharCode(num);
-  });
-}
 
 
+// Quote of the day.
 const QuteofdayIntentHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
@@ -111,6 +116,8 @@ const FallbackHandler = {
   },
 };
 
+
+// Help
 const HelpIntentHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
