@@ -80,7 +80,7 @@ const QuteofdayIntentHandler = {
 
  let speechText = 'Something went wrong Please try again';
  
-
+     // wait for the api to fetch the response
     await axios.get('http://quotes.rest/qod.json')
     .then(res => {
      var author = res.data.contents.quotes[0].author;
@@ -100,7 +100,7 @@ const QuteofdayIntentHandler = {
   },
 };
 
-
+// This is fall back handler.
 const FallbackHandler = {
   canHandle(handlerInput) {
     const request = handlerInput.requestEnvelope.request;
@@ -134,6 +134,7 @@ const HelpIntentHandler = {
   },
 };
 
+// This is locatiozation handler.
 const LocalizationInterceptor = {
   process(handlerInput) {
     const localizationClient = i18n.use(sprintf).init({
@@ -166,9 +167,8 @@ const LocalizationInterceptor = {
 
 const CancelAndStopIntentHandler = {
   canHandle(handlerInput) {
-    return handlerInput.requestEnvelope.request.type === 'IntentRequest' &&
-      (handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent' ||
-        handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
+    return  (handlerInput.requestEnvelope.request.intent.name === 'AMAZON.CancelIntent' ||
+        handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent') &&  handlerInput.requestEnvelope.request.type === 'IntentRequest';
   },
   handle(handlerInput) {
     const speechText = STOP_MESSAGE;
